@@ -1,21 +1,49 @@
-import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { useForm } from "react-hook-form";
+import React from "react";
+import { SafeAreaView, StyleSheet, TextInput, View, Alert, Button } from "react-native";
 
-export default function App() {
-  const { register, handleSubmit} = useForm();
-  const onSubmit = (data) => console.log(data);
+const UselessTextInput = () => {
+  const [text, onChangeText] = React.useState(null);
+  const [number, onChangeNumber] = React.useState(null);
 
- 
+  return (
+    <View style={styles.container}>
+    
+      <TextInput
+        style={styles.input}
+        onChangeText={onChangeText}
+        value={text}
+        placeholder="Insira seu email"
+      />
+      <TextInput
+        style={styles.input}
+        onChangeText={onChangeNumber}
+        value={number}
+        placeholder="Insira sua senha"
+        keyboardType="numeric"
+      />
+      <Button style={styles.button}
+        title="Entrar"
+        onPress={() => Alert.alert('Button Ok')}
+        
+      />
+    
+    </View>
+  );
+};
 
-  return(
-    <SafeAreaView>
-    <form onSubmit = { handleSubmit(onSubmit)} >
-      <input name="Email"  ref = { register({ required: true, maxLength: 20 }) } />
-        <input name="Password" ref = { register({ maxLength: 20 }) } />
-        <input type="submit" />
-    </form>
-    </SafeAreaView>
-  )
+const styles = StyleSheet.create({
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
+    container: {
+    flex: 1,
+    justifyContent: 'left',
+    alignItems: 'center',
+    padding: 10
+  }
+});
 
-}
+export default UselessTextInput;
