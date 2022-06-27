@@ -1,24 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { useForm } from "react-hook-form";
 
 export default function App() {
-  return (
-    <View style={styles.card}>
-      <Text styles={styles.title}>bem vindo</Text>
-    </View>
-  );
-}
+  const { register, handleSubmit} = useForm();
+  const onSubmit = (data) => console.log(data);
 
-const styles = StyleSheet.create({
-  card: {
-   flex: 1,
-   backgroundColor: '#2A2A2A',
-   justifyContent: 'center',
-   alignItems: 'center',
-  },
-  title: { 
-    color: '#fff',
-    backgroundColor: '#fff'
-  }
-});
+ 
+
+  return(
+    <SafeAreaView>
+    <form onSubmit = { handleSubmit(onSubmit)} >
+      <input name="Email"  ref = { register({ required: true, maxLength: 20 }) } />
+        <input name="Password" ref = { register({ maxLength: 20 }) } />
+        <input type="submit" />
+    </form>
+    </SafeAreaView>
+  )
+
+}
