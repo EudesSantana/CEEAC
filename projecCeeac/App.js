@@ -42,7 +42,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'left',
     alignItems: 'center',
-    padding: 10
+    padding: 10,
+  },
+  button: {
+    color: '2a2a2a'
   }
 });
 
