@@ -7,7 +7,8 @@ const UselessTextInput = () => {
 
   return (
     <View style={styles.container}>
-    
+      
+    <SafeAreaView>
       <TextInput
         style={styles.input}
         onChangeText={onChangeText}
@@ -21,12 +22,12 @@ const UselessTextInput = () => {
         placeholder="Insira sua senha"
         keyboardType="numeric"
       />
-      <Button style={styles.button}
+      <Button
         title="Entrar"
         onPress={() => Alert.alert('Button Ok')}
-        
+        color="2A2A2A"
       />
-    
+    </SafeAreaView>
     </View>
   );
 };
@@ -44,9 +45,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
   },
-  button: {
-    color: '2a2a2a'
-  }
 });
 
 export default UselessTextInput;
