@@ -17,7 +17,7 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar hidden />
 
-      <Image style={{width:100,height:100}} source={require('./assests/img.jpg')}/> 
+      <Image style={{width:100,height:100}} source={require('./assests/prefeitura.jpg')}/> 
 
       <TextInput placeholder='Digite seu email' style={styles.textInput} onChargeText={text=>setEmail(text)}/> 
       <TextInput secureTextEntry={true } placeholder='Digite sua senha' style={styles.textInput} onChargeText={text=>setSenha(text)}/> 
