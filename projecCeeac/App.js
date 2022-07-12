@@ -1,13 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, Image, TextInput,TouchableOpacity, alert} from 'react-native';
+import Cadastro from '../templates/form.js';
 
 export default function App() {
 
   const {email, setEmail} = useState('');
   const {senha, setSenha} = useState('');
 
-  const cadastro = () => {
+  const login = () => {
     alert('funcionando');
     alert(email);
     alert(senha);
@@ -22,10 +23,12 @@ export default function App() {
       <TextInput placeholder='Digite seu email' style={styles.textInput} onChargeText={text=>setEmail(text)}/> 
       <TextInput secureTextEntry={true } placeholder='Digite sua senha' style={styles.textInput} onChargeText={text=>setSenha(text)}/> 
 
-      <TouchableOpacity style={styles.btnCadastro} onPress={()=>cadastro()}>
+      <TouchableOpacity style={styles.btnLogin} onPress={()=>login()}>
         <Text style={styles.btnText}>ENTRAR</Text>
       </TouchableOpacity>
-
+      <TouchableOpacity style={styles.btnCadastro} onPress={()=>cadastro()}>
+        <Text style={styles.btnText}>Cadastre-se</Text>
+      </TouchableOpacity>
     </View>
   );
 }
